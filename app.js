@@ -11,7 +11,7 @@ const { response } = require("express");
 const app = express();
 // create app.use with express and set the direcry to public so you can move image and
 //  css file into it for the images and styles to  show on the rignup page
-// app.use(express.static("public"));
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 //setup get with response to send file from our root route and signup.html.
 app.get("/", function(req, res) {
