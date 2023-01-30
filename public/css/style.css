@@ -4,7 +4,9 @@ body {
 }
 
 body {
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-align: center;
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -12,11 +14,22 @@ body {
 }
 
 .form-signin {
+  width: 100%;
   max-width: 330px;
   padding: 15px;
+  margin: auto;
 }
-
-.form-signin .form-floating:focus-within {
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
   z-index: 2;
 }
 
@@ -27,16 +40,13 @@ body {
 }
 
 .middle {
-  border-radius: 0;
+  border-radius: 0%;
   margin-bottom: -1px;
+
 }
 
 .bottom {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-}
-
-p {
-  margin-top: 0%;
 }

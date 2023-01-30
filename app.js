@@ -4,16 +4,17 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
 const https = require("https");
-const { urlencoded } = require("body-parser");
-const { post } = require("request");
-const { response } = require("express");
+// const { urlencoded } = require("body-parser");
+// const { post } = require("request");
+// const { response } = require("express");
 
 const app = express();
 // create app.use with express and set the direcry to public so you can move image and
 //  css file into it for the images and styles to  show on the rignup page
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
-//setup get with response to send file from our root route and signup.html.
+//setup get with response to send file from our root route and signup.html so that 
+// we can be able to access it online through localhost:3000
 app.get("/", function(req, res) {
   res.sendFile(__dirname + "/signup.html");
 });
@@ -64,18 +65,19 @@ app.post("/", function(req, res) {
   request.write(jsonData);
   request.end();
 
-  // console.log(firstName, lastName, email);
+  //we redirect users to try sign up again if there is a prolem with their sign up.
+  app.post("/failure", function(req, res) {
+  res.redirect("/");
+  });
+
+  app.post("/success", function(req, res) {
+    res.redirect("/");
+  })
+  
+
 });
-//we redirect users to try sign up again if there is a prolem with their sign up.
-app.post("/failure", function(req, res) {
-  res.redirect("/");
-})
 
-app.post("/success", function(req, res) {
-  res.redirect("/");
-})
-
-
+ 
 
 app.listen(process.env.PORT || 3000, function() {
   console.log("Server is running on port 3000");
