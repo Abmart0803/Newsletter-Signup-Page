@@ -4,9 +4,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
 const https = require("https");
-// const { urlencoded } = require("body-parser");
-// const { post } = require("request");
-// const { response } = require("express");
+const { urlencoded } = require("body-parser");
+const { post } = require("request");
+const { response } = require("express");
 
 const app = express();
 // create app.use with express and set the direcry to public so you can move image and
